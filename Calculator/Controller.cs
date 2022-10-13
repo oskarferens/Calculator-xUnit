@@ -9,42 +9,45 @@ namespace Calculator
 {
     internal class Controller
     {
-        Calc calc = new Calc();
         public static void StartApplication()
         {
             bool working = true;
-            int firstInput;
-            int secondInput;
-            char option;
-            do
+            
+
+            while (working)
             {
+                int firstInput;
+                int secondInput;
+                char option;
+                List<double> numberList = new List<double> { 8.5, 5.2 };
+
+                Console.WriteLine("Choose an action *,+,-,/ or press . to exit");
+                option = Convert.ToChar(Console.ReadLine());
                 Console.WriteLine("Enter 1st input");
                 firstInput = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Enter 2nd input");
                 secondInput = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Choose an action *,+,-,/ or press . to exit");
-                option = Convert.ToChar(Console.ReadLine());
 
                 switch (option)
                 {
-                    case '+':
-                        {
-                            Calc.Addition(firstInput, secondInput);
-                            break;
-                        }
                     case '-':
                         {
-                            Calc.Subtraction(firstInput, secondInput);
+                            Console.WriteLine("result is : " + Calc.Substraction(firstInput,secondInput));
+                            break;
+                        }
+                    case '+':
+                        {
+                            Console.WriteLine("result is : " + Calc.Addition(firstInput, secondInput));
                             break;
                         }
                     case '*':
                         {
-                            Calc.Multiplication(firstInput, secondInput);
+                            Console.WriteLine("result is : " + Calc.Multiplication(firstInput, secondInput));
                             break;
                         }
                     case '/':
                         {
-                            Calc.Division(firstInput, secondInput);
+                            Console.WriteLine(Calc.Division(firstInput, secondInput));
                             break;
                         }
                     case '.':
@@ -54,9 +57,9 @@ namespace Calculator
                             working = false;
                             break;
                         }
+
                 }
-            } while (working);
+            }
         }
     }
-
 }

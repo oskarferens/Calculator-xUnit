@@ -2,35 +2,74 @@ namespace Calculator.Test
 {
     public class UnitTest1
     {
-        [Theory]
-        [InlineData(3, 1, 4)]
-        public void Addition(double x, double y, double expected)
+        [Fact]
+        public void TestMultiplication()
         {
-            double actual = x + y;
-            Assert.Equal(expected, actual);
+            //Arrange
+            int a = 15;
+            int b = 4;
+
+            //Act
+            //Assert
+            Assert.Equal(60,Calc.Multiplication(a,b));
+        }
+        
+        [Fact]
+        public void TestAddition()
+        {
+            //Arrange
+            int a = 15;
+            int b = 4;
+
+            //Act
+            //Assert
+            Assert.Equal(19,Calc.Addition(a,b));
+        }
+        
+        [Fact]
+        public void TestDivision()
+        {
+            //Arrange
+            int a = 15;
+            int b = 5;
+            double expected = 3;
+            //Act
+            double actual = Calc.Division(a, b);
+
+            //Assert
+            Assert.Equal(expected, Calc.Division(a,b));
+        }
+        
+        [Fact]
+        public void TestSubstraction()
+        {
+            //Arrange
+            int a = 15;
+            int b = 4;
+
+            //Act
+            //Assert
+            Assert.Equal(11,Calc.Substraction(a,b));
         }
 
-        [Theory]
-        [InlineData(1, -1, 2)]
-        public void Subtraction(double x, double y, double expected)
+        [Fact]
+        public void TestAdditionOverloaded()
         {
-            double actual = x - y;
-            Assert.Equal(expected, actual);
+            //Arrange
+            List<double> numbers = new List<double> { 15.5, 12.5 };
+            //Act
+            //Assert
+            Assert.Equal(28, Calc.Addition(numbers));
         }
 
-        [Theory]
-        [InlineData(5, 2, 2.5)]
-        public void Division(double x, double y, double expected)
+        [Fact]
+        public void TestSubstractionOverloaded()
         {
-            double actual = x / y;
-            Assert.Equal(expected, actual);
-        }
-        [Theory]
-        [InlineData(4, 2, 8)]
-        public void Multiplication(double x, double y, double expected)
-        {
-            double actual = x * y;
-            Assert.Equal(expected, actual);
+            //Arrange
+            List<double> numbers = new List<double> { 5.5, 2.2 };
+            //Act
+            //Assert
+            Assert.Equal(3.3, Calc.Substraction(numbers));
         }
     }
 }

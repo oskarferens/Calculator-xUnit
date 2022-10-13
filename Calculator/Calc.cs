@@ -1,39 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Calculator
 {
-    internal class Calc
+    public class Calc
     {
-        public static void Multiplication(int firstInput, int secondInput)
+        public static int Multiplication(int firstInput, int secondInput)
         {
-            Console.WriteLine("result = " + firstInput * secondInput);
+            return firstInput * secondInput;
         }
 
-        public static void Division(int firstInput, int secondInput)
+        public static double Division(double firstInput, double secondInput)
         {
-            double firstInputDouble = Convert.ToDouble(firstInput);
-            double secondInputDouble = Convert.ToDouble(secondInput);
-            double resultInDouble = firstInputDouble / secondInputDouble;
-            resultInDouble = Math.Round(resultInDouble, 4);
 
-            if (secondInputDouble == 0)
+            //resultInDouble = Math.Round(resultInDouble, 4);
+            double result = firstInput / secondInput;
+            result = Math.Round(result, 3);
+
+            if (secondInput == 0 )
                 Console.WriteLine("Dont divide by 0");
             else
-                Console.WriteLine("result = " + resultInDouble);
+                Console.Write("result = ");
+
+            return result;
         }
 
-        public static void Subtraction(int firstInput, int secondInput)
+        public static int Substraction(int firstInput, int secondInput)
         {
-            Console.WriteLine("result = " + (firstInput - secondInput));
+            int result = firstInput - secondInput;
+            return result;
+        }
+        
+        public static double Substraction(List<double> numbers)
+        {
+            double sum = numbers[0];
+
+            for (int i = 1; i < numbers.Count; i++)
+            {
+                sum -= numbers[i];
+            }
+
+            return sum;
         }
 
-        public static void Addition(int firstInput, int secondInput)
+        public static int Addition(int firstInput, int secondInput)
         {
-            Console.WriteLine("result = " + (firstInput + secondInput));
+            int result = firstInput + secondInput;
+            return result;
         }
+        
+        public static double Addition(List<double> numbers)
+        {
+            double sum = numbers[0];
+
+            for (int i = 1; i < numbers.Count; i++)
+            {
+                sum += numbers[i];
+            }
+            return sum;
+        }
+
     }
 }
